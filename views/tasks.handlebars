@@ -1,0 +1,26 @@
+<!-- tasks.handlebars -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <form action="/tasks" method="POST">
+        <input type="text" placeholder="Digite sua tarefa" name="tarefa">
+        <button type="submit">Listar Tarefa</button>
+    </form>
+    <ul>
+        {{#each items}}
+        <li>
+            Tarefa: {{this.tarefa }}  →
+            <a href="/tasks/{{this.id}}">Detalhes</a>
+            <a href="/edit/{{this.id}}">Editar</a>
+            <a href="/delete/{{this.id}}">Excluir</a>
+        </li>
+        {{/each}}
+    </ul>
+</body>
+</html>
